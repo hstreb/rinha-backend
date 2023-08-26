@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:15.4-alpine
+    hostname: db
+    command: -p 5432
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./docker/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - POSTGRES_USER=rinha
+      - POSTGRES_PASSWORD=rinha123
+      - POSTGRES_DB=rinha
+    deploy:
+      resources:
+        limits:
+          cpus: '0.75'
+          memory: '1.5GB'
