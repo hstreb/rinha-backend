@@ -12,7 +12,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.25'
+          cpus: '0.3'
           memory: '0.5GB'
   api2:
     image: docker/rinha-spring:0.0.1
@@ -26,7 +26,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.25'
+          cpus: '0.3'
           memory: '0.5GB'
   nginx:
     image: nginx:latest
@@ -40,7 +40,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.25'
+          cpus: '0.1'
           memory: '0.5GB'
   db:
     image: postgres:15.4-alpine
@@ -57,5 +57,5 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.75'
+          cpus: '0.8'
           memory: '1.5GB'

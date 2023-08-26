@@ -30,6 +30,10 @@ docker compose up -d
 
 ## Resultados
 
-A melhor execução até o momento: 35822 pessoas
+1 - bateria de testes, a melhor execução: 35822 pessoas inseridas
 
 ![img.png](imgs/execucao-01.png)
+
+2 - bateria de testes, ajuste na distribuição de CPU entre os container, 39855 pessoas inseridas
+
+![img.png](imgs/execucao-02.png)
