@@ -37,3 +37,7 @@ docker compose up -d
 2 - bateria de testes, ajuste na distribuição de CPU entre os container, 39855 pessoas inseridas
 
 ![img.png](imgs/execucao-02.png)
+
+3 - bateria de testes, uso de UUID v7 para facilitar a indexação dos ids no banco + utilização do undertow ao invés do tomcat: 39924 pessoas inseridas
+
+![img.png](imgs/execucao-03.png)

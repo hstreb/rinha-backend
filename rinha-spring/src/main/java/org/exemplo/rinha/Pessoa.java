@@ -1,6 +1,7 @@
 package org.exemplo.rinha;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.github.f4b6a3.uuid.UuidCreator;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.annotation.Version;
@@ -35,7 +36,7 @@ public class Pessoa implements Serializable {
     }
 
     public Pessoa(String nome, String apelido, LocalDate nascimento, Set<String> stack) {
-        this.id = UUID.randomUUID();
+        this.id = UuidCreator.getTimeOrderedEpochPlus1();
         this.nome = nome;
         this.apelido = apelido;
         this.nascimento = nascimento;
