@@ -2,7 +2,7 @@ version: "3.8"
 name: rinha-spring
 services:
   api1: &api
-    image: docker/rinha-spring:0.0.1
+    image: hstreb/rinha-spring:0.0.1
     hostname: api1
     profiles: ["jvm"]
     depends_on:
@@ -22,7 +22,7 @@ services:
     hostname: api2
 
   api-native1: &api-native
-    image: docker/rinha-spring:0.0.1-native
+    image: hstreb/rinha-spring:0.0.1-native
     hostname: api1
     profiles: ["native"]
     depends_on:

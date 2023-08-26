@@ -83,7 +83,7 @@ docker compose up -d
 
 - 4 - bateria de testes: jvm x native
 
-  - 4.1 - jvm: 39793 pessoas inseridas
+  - 4.1 - jvm, rodar com profile jvm `docker compose --profile jvm up -d`: 39793 pessoas inseridas
   
     ![img.png](imgs/execucao-04-1.png)
   
@@ -96,7 +96,7 @@ docker compose up -d
     4ef7064eea1f   rinha-spring-db-1      38.46%    130.6MiB / 1.5GiB   8.50%     28.9MB / 24.1MB   12.3kB / 465MB   38  
     ```
   
-  - 4.2 - native: 39826 pessoas inseridas
+  - 4.2 - native, rodar com profile native `docker compose --profile native up -d`: 39826 pessoas inseridas
 
     ![img.png](imgs/execucao-04-2.png)
   
