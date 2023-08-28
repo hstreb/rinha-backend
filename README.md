@@ -16,3 +16,5 @@ cd stress-test
 ## Soluções
 
 - [Spring-boot](rinha-spring)
+
+- [Vertx](rinha-vertx)
