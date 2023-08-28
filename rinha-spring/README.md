@@ -22,6 +22,7 @@ Projeto para resolver o desafio da rinha de backend https://github.com/zanfrance
   ./gradlew build
   docker build -t hstreb/rinha-spring:0.0.1 .
   ```
+
 - native
 
   - construir o jar
