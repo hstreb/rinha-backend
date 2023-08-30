@@ -44,21 +44,21 @@ H/W path          Device          Class          Description
 /0/3a                             processor      12th Gen Intel(R) Core(TM) i7-12700H
 ```
 
-- solução [Spring-boot](rinha-spring)
+### solução [Spring-boot](rinha-spring)
 
-  - 1 - bateria de testes, a melhor execução: 35822 pessoas inseridas
+- 1 - bateria de testes, a melhor execução: 35822 pessoas inseridas
 
     ![img.png](imgs/spring-01.png)
 
-  - 2 - bateria de testes, ajuste na distribuição de CPU entre os container, 39855 pessoas inseridas
+- 2 - bateria de testes, ajuste na distribuição de CPU entre os container, 39855 pessoas inseridas
 
     ![img.png](imgs/spring-02.png)
 
-  - 3 - bateria de testes, uso de UUID v7 para facilitar a indexação dos ids no banco + utilização do undertow ao invés do tomcat: 39924 pessoas inseridas
+- 3 - bateria de testes, uso de UUID v7 para facilitar a indexação dos ids no banco + utilização do undertow ao invés do tomcat: 39924 pessoas inseridas
 
     ![img.png](imgs/spring-03.png)
 
-  - 4 - bateria de testes: jvm x native
+- 4 - bateria de testes: jvm x native
 
     - 4.1 - jvm, rodar com profile jvm `docker compose --profile jvm up -d`: 39793 pessoas inseridas
     
@@ -86,24 +86,24 @@ H/W path          Device          Class          Description
         035a1d888203   rinha-spring-db-1             54.48%    129.7MiB / 1.5GiB   8.45%     28MB / 24.2MB     0B / 484MB    38
         ```
 
-- solução [Vertx](rinha-vertx)
+### solução [Vertx](rinha-vertx)
 
-  - 1 - bateria de testes: projeto inicial: 39762 pessoas inseridas
+- 1 - bateria de testes: projeto inicial: 39762 pessoas inseridas
 
     ![img.png](imgs/vertx-01.png)
 
     ```shell
     docker stats
-    CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS                                                                                        [85/8834]
+    CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
     c25c3d66d2b7   rinha-vertx-nginx-1   9.29%     95.8MiB / 512MiB    18.71%    72.8MB / 76.7MB   815kB / 12.3kB   21
     0dde7408a51b   rinha-vertx-api2-1    5.71%     109.1MiB / 512MiB   21.31%    34.6MB / 27.1MB   2.42MB / 471kB   18
     ffee782833f7   rinha-vertx-api1-1    5.14%     104.6MiB / 512MiB   20.44%    34.4MB / 26.9MB   504kB / 524kB    18
     7ef90b5a7234   rinha-vertx-db-1      43.97%    80.88MiB / 1.5GiB   5.27%     29.2MB / 36.4MB   569kB / 489MB    14
     ```
 
-- solução [Spring-boot-virtual-threads](rinha-spring-virtual-threads)
+### solução [Spring-boot-virtual-threads](rinha-spring-virtual-threads)
 
-  - 1 - bateria de testes inicial: 39789 pessoas inseridas
+- 1 - bateria de testes inicial: 39789 pessoas inseridas
 
     ![img.png](imgs/spring-vt-01.png)
 
@@ -116,8 +116,19 @@ H/W path          Device          Class          Description
     a5895a146250   rinha-spring-virtual-threads-db-1      41.27%    161.3MiB / 1.5GiB     10.50%    28.9MB / 27.6MB   4.31MB / 476MB    56
     ```
 
-- soluções enviadas para rinha
+### soluções enviadas para rinha
 
-  - 1 - bateria de testes da solução vitoriosa do [viniciusfonseca](https://github.com/viniciusfonseca/rinha-backend-rust): 40255 - 403 (inseridas na base antes da execução) = 39852 pessoas inseridas
+- 1 - bateria de testes da solução vitoriosa do [viniciusfonseca](https://github.com/viniciusfonseca/rinha-backend-rust): 40255 - 403 (inseridas na base antes da execução) = 39852 pessoas inseridas
   
     ![img.png](imgs/rust-viniciusfonseca-01.png)
+
+    ```shell
+    http :9999/contagem-pessoas
+    HTTP/1.1 200 OK
+    Connection: keep-alive
+    Content-Length: 3
+    Date: Wed, 30 Aug 2023 02:07:54 GMT
+    Server: nginx/1.25.2
+    
+    403
+    ```
