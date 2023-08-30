@@ -1,4 +1,4 @@
-package org.example;
+package org.exemplo.rinha;
 
 import io.vertx.core.Future;
 import io.vertx.pgclient.PgPool;

@@ -1,4 +1,4 @@
-package org.example;
+package org.exemplo.rinha;
 
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.pgclient.PgException;

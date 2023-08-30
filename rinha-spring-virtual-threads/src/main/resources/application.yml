@@ -1,0 +1,12 @@
+spring:
+  main:
+    banner-mode: "off"
+  datasource:
+    url: jdbc:postgresql://localhost:5432/rinha
+    username: rinha
+    password: rinha123
+    hikari:
+      connection-timeout: 60000
+      minimum-idle: 1
+      maximum-pool-size: 25
+      idle-timeout: 10000

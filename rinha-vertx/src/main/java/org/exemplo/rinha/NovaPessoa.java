@@ -1,4 +1,4 @@
-package org.example;
+package org.exemplo.rinha;
 
 import java.time.LocalDate;
 import java.util.Set;

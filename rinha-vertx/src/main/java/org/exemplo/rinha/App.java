@@ -1,4 +1,4 @@
-package org.example;
+package org.exemplo.rinha;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.SerializationFeature;

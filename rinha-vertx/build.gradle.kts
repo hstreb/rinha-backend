@@ -20,7 +20,7 @@ repositories {
 val vertxVersion = "4.4.5"
 val junitJupiterVersion = "5.9.1"
 
-val mainVerticleName = "org.example.App"
+val mainVerticleName = "org.exemplo.rinha.App"
 
 application {
   mainClass.set(mainVerticleName)
