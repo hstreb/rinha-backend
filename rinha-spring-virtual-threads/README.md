@@ -13,13 +13,13 @@ Construir o projeto
 Contruir a imagem docker
 
 ```shell
-docker build -t docker.io/library/rinha-spring:0.0.1-jvm .
+docker build -t hstreb/rinha-spring-virtual-threads:0.0.1-jvm .
 ```
 
 Rodar linha de comando
 
 ```shell
-java -jar build/libs/rinha-spring-0.0.1.jar
+java -jar build/libs/rinha-spring-virtual-threads-0.0.1.jar
 ```
 
 ### versão native
@@ -30,7 +30,7 @@ o [agente do graalvm](https://docs.spring.io/spring-boot/docs/current/reference/
 e executar os testes na api. Esse passo já foi executado e os arquivos estão no diretório correto.
 
 ```shell
-java -Dspring.aot.enabled=true -agentlib:native-image-agent=config-output-dir=src/main/resources/META-INF/native-image/ -jar build/libs/rinha-spring-0.0.1.jar
+java -Dspring.aot.enabled=true -agentlib:native-image-agent=config-output-dir=src/main/resources/META-INF/native-image/ -jar build/libs/rinha-spring-virtual-threads-0.0.1.jar
 ```
 
 Construir o projeto e criar imagem docker

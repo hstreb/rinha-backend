@@ -1,0 +1,10 @@
+spring:
+  main:
+    banner-mode: "off"
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/rinha
+    username: rinha
+    password: rinha123
+    pool:
+      max-size: 25
+      min-idle: 1

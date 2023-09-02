@@ -116,6 +116,21 @@ H/W path          Device          Class          Description
     a5895a146250   rinha-spring-virtual-threads-db-1      41.27%    161.3MiB / 1.5GiB     10.50%    28.9MB / 27.6MB   4.31MB / 476MB    56
     ```
 
+### solução [Spring-boot-webflux](rinha-spring-webflux)
+
+- 1 bateria de testes: 42796 pessoas inseridas
+
+    ![img.png](imgs/spring-webflux-01.png)
+
+    ```shell
+    docker stats
+    CONTAINER ID   NAME                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O         PIDS
+    dee2d7ecd0f3   rinha-spring-webflux-nginx-1   13.66%    42.41MiB / 512MiB   8.28%     82.3MB / 85.5MB   1.95MB / 12.3kB   5
+    1960f55807f9   rinha-spring-webflux-api2-1    40.19%    285.7MiB / 512MiB   55.80%    35.7MB / 27.1MB   5.17MB / 365kB    26
+    0cb7918f2982   rinha-spring-webflux-api1-1    40.80%    322.9MiB / 512MiB   63.08%    35.8MB / 27.2MB   12.2MB / 451kB    26
+    c23b4e142c3c   rinha-spring-webflux-db-1      60.18%    171.7MiB / 1.5GiB   11.18%    23MB / 34MB       9.97MB / 341MB    56
+    ```
+
 ### soluções enviadas para rinha
 
 - 1 - bateria de testes da solução vitoriosa do [viniciusfonseca](https://github.com/viniciusfonseca/rinha-backend-rust): 40255 - 403 (inseridas na base antes da execução) = 39852 pessoas inseridas

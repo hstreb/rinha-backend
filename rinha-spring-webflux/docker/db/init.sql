@@ -2,6 +2,7 @@ create EXTENSION IF NOT EXISTS "pg_trgm";
 
 create TABLE IF NOT EXISTS pessoas (
   id UUID NOT NULL,
+  versao INTEGER NOT NULL,
   nome VARCHAR(100) NOT NULL,
   apelido VARCHAR(32) NOT NULL,
   nascimento DATE NOT NULL,

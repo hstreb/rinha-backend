@@ -1,0 +1,97 @@
+version: "3.8"
+name: rinha-spring-webflux
+services:
+  api1: &api
+    image: hstreb/rinha-spring-webflux:0.0.1
+    hostname: api1
+    profiles: ["jvm"]
+    depends_on:
+      db:
+        condition: service_healthy
+    expose:
+      - "8080"
+    environment:
+      - SPRING_R2DBC_URL=r2dbc:postgresql://db:5432/rinha
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: '0.5GB'
+  api2:
+    <<: *api
+    hostname: api2
+
+  api-native1: &api-native
+    image: hstreb/rinha-spring-webflux:0.0.1-native
+    hostname: api1
+    profiles: ["native"]
+    depends_on:
+      db:
+        condition: service_healthy
+    expose:
+      - "8080"
+    environment:
+      - SPRING_R2DBC_URL=r2dbc:postgresql://db:5432/rinha
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: '0.5GB'
+  api-native2:
+    <<: *api-native
+    hostname: api2
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    profiles: ["jvm"]
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: '0.5GB'
+
+  nginx-native:
+    image: nginx:latest
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    profiles: ["native"]
+    depends_on:
+      - api-native1
+      - api-native2
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: '0.5GB'
+  db:
+    image: postgres:15.4-alpine
+    hostname: db
+    command: -p 5432
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./docker/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./docker/db/postgresql.conf:/docker-entrypoint-initdb.d/postgresql.conf
+    environment:
+      - POSTGRES_USER=rinha
+      - POSTGRES_PASSWORD=rinha123
+      - POSTGRES_DB=rinha
+    deploy:
+      resources:
+        limits:
+          cpus: '0.8'
+          memory: '1.5GB'
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U rinha" ]
+      interval: 2s
+      timeout: 1s
+      retries: 30

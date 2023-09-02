@@ -20,5 +20,5 @@ Projeto para resolver o desafio da rinha de backend https://github.com/zanfrance
 - jvm
   ```shell
   ./gradlew build
-  docker build -t hstreb/rinha-spring:0.0.1 .
+  docker build -t hstreb/rinha-vertx:0.0.1 .
   ```
