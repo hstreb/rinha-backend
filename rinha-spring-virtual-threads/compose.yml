@@ -3,15 +3,11 @@ name: rinha-spring-virtual-threads
 services:
   api1: &api
     image: hstreb/rinha-spring-virtual-threads:0.0.1
-    hostname: api1
     profiles: [ "jvm" ]
     depends_on:
       db:
         condition: service_healthy
-    expose:
-      - "8080"
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/rinha
+    network_mode: "host"
     deploy:
       resources:
         limits:
@@ -19,19 +15,16 @@ services:
           memory: '0.5GB'
   api2:
     <<: *api
-    hostname: api2
+    environment:
+      - SERVER_PORT=8081
 
   api-native1: &api-native
     image: hstreb/rinha-spring-virtual-threads:0.0.1-native
-    hostname: api1
     profiles: [ "native" ]
     depends_on:
       db:
         condition: service_healthy
-    expose:
-      - "8080"
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/rinha
+    network_mode: "host"
     deploy:
       resources:
         limits:
@@ -39,7 +32,8 @@ services:
           memory: '0.5GB'
   api-native2:
     <<: *api-native
-    hostname: api2
+    environment:
+      - SERVER_PORT=8081
 
   nginx:
     image: nginx:latest
@@ -49,8 +43,7 @@ services:
     depends_on:
       - api1
       - api2
-    ports:
-      - "9999:9999"
+    network_mode: "host"
     deploy:
       resources:
         limits:
@@ -65,8 +58,7 @@ services:
     depends_on:
       - api-native1
       - api-native2
-    ports:
-      - "9999:9999"
+    network_mode: "host"
     deploy:
       resources:
         limits:
@@ -76,8 +68,7 @@ services:
     image: postgres:15.4-alpine
     hostname: db
     command: -p 5432
-    ports:
-      - "5432:5432"
+    network_mode: "host"
     volumes:
       - ./docker/db/init.sql:/docker-entrypoint-initdb.d/init.sql
       - ./docker/db/postgresql.conf:/docker-entrypoint-initdb.d/postgresql.conf

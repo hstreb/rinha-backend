@@ -65,3 +65,18 @@ Caminho do hardware  Dispositivo  Classe         Descrição
 | rinha-spring-virtual-threads | jvm | 43914 | 18503 |
 | rinha-spring | jvm | 43185 | 18490 |
 | rinha-spring | native | 39950 | 22186 |
+
+
+## revisões
+
+Após o video do [MrPowerGamerBR](https://www.youtube.com/watch?v=XqYdhlkRlus) ajustei o randomized do stress test para buscar sempre inserir 46576 pessoas, inclusive foi encontrado um bug que não inseria pessoas com nome com espaço em branco (' ').
+
+Com o ajuste mostrado no tweet do [Vinícius Ferras](https://twitter.com/viniciusfcf/status/1700298875574030608) sobre utilizar o `network_mode: "host"`, os resultados melhoraram muito, todos conseguiram inserir o total de pessoas e o p99 ficou bem menor:
+
+| projeto | profile | contagem de pessoas | p99 geral |
+| --- | --- | --- | --- |
+| rinha-vertx | jvm | 46576 | 12 |
+| rinha-spring | native | 46576 | 81 |
+| rinha-spring-virtual-threads | jvm | 46576 | 351 |
+| rinha-spring-webflux | jvm | 46576 | 1360 |
+| rinha-spring | jvm | 46576 | 2744 |

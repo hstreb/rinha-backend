@@ -55,9 +55,9 @@ public class PessoaController {
         var nome = pessoa.nome();
         var apelido = pessoa.apelido();
         var stack = pessoa.stack();
-        return apelido == null || apelido.isBlank() || apelido.length() > 32 ||
-                nome == null || nome.isBlank() || nome.length() > 100 ||
-                (stack != null && stack.stream().anyMatch(s -> s == null || s.isBlank() || s.length() > 32));
+        return apelido == null || apelido.length() > 32 ||
+                nome == null || nome.length() > 100 ||
+                (stack != null && stack.stream().anyMatch(s -> s == null || s.length() > 32));
     }
 }
 

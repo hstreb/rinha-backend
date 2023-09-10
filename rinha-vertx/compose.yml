@@ -3,15 +3,11 @@ name: rinha-vertx
 services:
   api1: &api
     image: hstreb/rinha-vertx:0.0.1
-    hostname: api1
     profiles: ["jvm"]
     depends_on:
       db:
         condition: service_healthy
-    expose:
-      - "8080"
-    environment:
-      - DB_HOST=db
+    network_mode: "host"
     deploy:
       resources:
         limits:
@@ -19,7 +15,8 @@ services:
           memory: '0.5GB'
   api2:
     <<: *api
-    hostname: api2
+    environment:
+      - HTTP_PORT=8081
   nginx:
     image: nginx:latest
     volumes:
@@ -28,8 +25,7 @@ services:
     depends_on:
       - api1
       - api2
-    ports:
-      - "9999:9999"
+    network_mode: "host"
     deploy:
       resources:
         limits:
@@ -40,8 +36,7 @@ services:
     image: postgres:15.4-alpine
     hostname: db
     command: -p 5432
-    ports:
-      - "5432:5432"
+    network_mode: "host"
     volumes:
       - ./docker/db/init.sql:/docker-entrypoint-initdb.d/init.sql
       - ./docker/db/postgresql.conf:/docker-entrypoint-initdb.d/postgresql.conf

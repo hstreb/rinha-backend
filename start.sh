@@ -41,6 +41,8 @@ end=`date +%s.%N`
 runtime=$( echo "$end - $start" | bc -l )
 echo "[${projeto}]: aceitando requisições após: ${runtime} segundos"  >> $log 2>&1
 
+sleep 3
+
 qtde_inicial=$(curl -s "http://localhost:9999/contagem-pessoas")
 
 echo "contagem inicial: ${qtde_inicial}" >> $log 2>&1
