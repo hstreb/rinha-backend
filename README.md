@@ -80,3 +80,15 @@ Com o ajuste mostrado no tweet do [Vinícius Ferras](https://twitter.com/viniciu
 | rinha-spring-virtual-threads | jvm | 46576 | 351 |
 | rinha-spring-webflux | jvm | 46576 | 1360 |
 | rinha-spring | jvm | 46576 | 2744 |
+
+### Quando a gente atingir a meta, nós dobramos a meta.
+
+Ao colocar 1200 usuários simultâneos os resultados mudaram um pouco, com a programação reativa trabalhando melhor que a imperativa, e as threads virtuais não conseguiram atingir o 100% de inserts.
+
+| projeto | profile | contagem de pessoas | p99 geral |
+| --- | --- | --- | --- |
+| rinha-vertx | jvm | 84671 | 925 |
+| rinha-spring-webflux | jvm | 84671 | 21365 |
+| rinha-spring | jvm | 84671 | 77408 |
+| rinha-spring | native | 82130 | 70667 |
+| sring-virtual-threads | jvm | 68515 | 60001 |

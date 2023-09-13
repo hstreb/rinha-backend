@@ -60,7 +60,9 @@ class RinhaBackendSimulation
       constantUsersPerSec(2).during(10.seconds), // warm up
       constantUsersPerSec(5).during(15.seconds), // are you ready?
       
-      rampUsersPerSec(6).to(600).during(3.minutes) // lezzz go!!!
+      // Nós não vamos colocar uma meta. Nós vamos deixar uma meta aberta.
+      // Quando a gente atingir a meta, nós dobramos a meta.
+      rampUsersPerSec(6).to(1200).during(3.minutes) // lezzz go!!!
     ),
     buscaPessoas.inject(
       constantUsersPerSec(2).during(25.seconds), // warm up
