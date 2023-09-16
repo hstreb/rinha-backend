@@ -23,6 +23,8 @@ cd stress-test
 
 - [Spring-boot-webflux](rinha-spring-webflux)
 
+- [Jooby](rinha-jooby)
+
 ## Resultados parciais
 
 Alguns resultados conforme a evolução dos projetos [resultados](resultados.md).
@@ -37,6 +39,7 @@ Alguns resultados conforme a evolução dos projetos [resultados](resultados.md)
 ./start.sh rinha-spring-virtual-threads jvm
 ./start.sh rinha-spring-webflux jvm
 ./start.sh rinha-vertx jvm
+./start.sh rinha-jooby jvm
 ```
 
 ### hardware
@@ -87,6 +90,7 @@ Ao colocar 1200 usuários simultâneos os resultados mudaram um pouco, com a pro
 
 | projeto | profile | contagem de pessoas | p99 geral |
 | --- | --- | --- | --- |
+| rinha-jooby | jvm | 84671 | 567 |
 | rinha-vertx | jvm | 84671 | 925 |
 | rinha-spring-webflux | jvm | 84671 | 21365 |
 | rinha-spring | jvm | 84671 | 77408 |

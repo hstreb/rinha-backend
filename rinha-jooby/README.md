@@ -1,9 +1,9 @@
-# Rinha backend, usando vertx
+# Rinha backend, usando jooby
 
 Projeto para resolver o desafio da rinha de backend https://github.com/zanfranceschi/rinha-de-backend-2023-q3, usando:
 
 - java 17
-- vertx 4.4.5 https://vertx.io/
+- jooby 3.0.5 https://jooby.io/
 - postgresql 15.4
 
 ## Sobre
@@ -20,5 +20,5 @@ Projeto para resolver o desafio da rinha de backend https://github.com/zanfrance
 - jvm
   ```shell
   ./gradlew build
-  docker build -t hstreb/rinha-vertx:0.0.1 .
+  docker build -t hstreb/rinha-jooby:0.0.1 .
   ```
