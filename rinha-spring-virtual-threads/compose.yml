@@ -2,7 +2,7 @@ version: "3.8"
 name: rinha-spring-virtual-threads
 services:
   api1: &api
-    image: hstreb/rinha-spring-virtual-threads:0.0.1
+    image: hstreb/rinha-spring-virtual-threads:0.0.2
     profiles: [ "jvm" ]
     depends_on:
       db:
@@ -12,7 +12,7 @@ services:
       resources:
         limits:
           cpus: '0.3'
-          memory: '0.5GB'
+          memory: '0.75GB'
   api2:
     <<: *api
     environment:
@@ -48,7 +48,7 @@ services:
       resources:
         limits:
           cpus: '0.1'
-          memory: '0.3GB'
+          memory: '0.5GB'
 
   nginx-native:
     image: nginx:latest
@@ -80,7 +80,7 @@ services:
       resources:
         limits:
           cpus: '0.8'
-          memory: '1.5GB'
+          memory: '1.0GB'
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U rinha" ]
       interval: 2s

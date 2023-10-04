@@ -60,4 +60,3 @@ public class PessoaController {
                 (stack != null && stack.stream().anyMatch(s -> s == null || s.length() > 32));
     }
 }
-

@@ -1,5 +1,4 @@
 create EXTENSION IF NOT EXISTS "pg_trgm";
-create EXTENSION IF NOT EXISTS "uuid-ossp";
 
 create TABLE IF NOT EXISTS pessoas (
   id UUID NOT NULL,

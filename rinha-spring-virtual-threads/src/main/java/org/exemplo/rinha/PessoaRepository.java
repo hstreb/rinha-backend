@@ -10,6 +10,6 @@ import java.util.UUID;
 @Repository
 public interface PessoaRepository extends CrudRepository<Pessoa, UUID> {
 
-    @Query("SELECT id, nome, apelido, nascimento, stack FROM pessoas WHERE termo ILIKE '%'||:termo||'%' LIMIT 50")
+    @Query("SELECT id, nome, apelido, nascimento, stack FROM pessoas WHERE termo LIKE '%'||:termo||'%' LIMIT 50")
     List<Pessoa> findAllBySearch(String termo);
 }

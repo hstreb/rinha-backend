@@ -2,10 +2,34 @@
   "resources": {
     "includes": [
       {
+        "pattern": "\\QMETA-INF/jdbc-named-queries.properties\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/resources/index.html\\E"
+      },
+      {
         "pattern": "\\QMETA-INF/services/ch.qos.logback.classic.spi.Configurator\\E"
       },
       {
+        "pattern": "\\QMETA-INF/services/java.lang.System$LoggerFinder\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/services/java.net.spi.InetAddressResolverProvider\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/services/java.nio.channels.spi.SelectorProvider\\E"
+      },
+      {
         "pattern": "\\QMETA-INF/services/java.sql.Driver\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/services/java.time.zone.ZoneRulesProvider\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/services/java.util.spi.ResourceBundleControlProvider\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/services/org.apache.juli.logging.Log\\E"
       },
       {
         "pattern": "\\QMETA-INF/services/org.slf4j.spi.SLF4JServiceProvider\\E"
@@ -14,7 +38,97 @@
         "pattern": "\\QMETA-INF/spring.factories\\E"
       },
       {
+        "pattern": "\\QMETA-INF/spring.integration.properties\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/spring/logback-pattern-rules\\E"
+      },
+      {
+        "pattern": "\\Qapplication-default.properties\\E"
+      },
+      {
+        "pattern": "\\Qapplication-default.xml\\E"
+      },
+      {
+        "pattern": "\\Qapplication-default.yaml\\E"
+      },
+      {
+        "pattern": "\\Qapplication-default.yml\\E"
+      },
+      {
+        "pattern": "\\Qapplication.properties\\E"
+      },
+      {
+        "pattern": "\\Qapplication.xml\\E"
+      },
+      {
+        "pattern": "\\Qapplication.yaml\\E"
+      },
+      {
         "pattern": "\\Qapplication.yml\\E"
+      },
+      {
+        "pattern": "\\Qconfig/application-default.properties\\E"
+      },
+      {
+        "pattern": "\\Qconfig/application-default.xml\\E"
+      },
+      {
+        "pattern": "\\Qconfig/application-default.yaml\\E"
+      },
+      {
+        "pattern": "\\Qconfig/application-default.yml\\E"
+      },
+      {
+        "pattern": "\\Qconfig/application.properties\\E"
+      },
+      {
+        "pattern": "\\Qconfig/application.xml\\E"
+      },
+      {
+        "pattern": "\\Qconfig/application.yaml\\E"
+      },
+      {
+        "pattern": "\\Qconfig/application.yml\\E"
+      },
+      {
+        "pattern": "\\Qdata-all.sql\\E"
+      },
+      {
+        "pattern": "\\Qdata.sql\\E"
+      },
+      {
+        "pattern": "\\Qjndi.properties\\E"
+      },
+      {
+        "pattern": "\\Qlogback-spring.groovy\\E"
+      },
+      {
+        "pattern": "\\Qlogback-spring.xml\\E"
+      },
+      {
+        "pattern": "\\Qlogback-test-spring.groovy\\E"
+      },
+      {
+        "pattern": "\\Qlogback-test-spring.xml\\E"
+      },
+      {
+        "pattern": "\\Qlogback-test.groovy\\E"
+      },
+      {
+        "pattern": "\\Qlogback-test.scmo\\E"
+      },
+      {
+        "pattern": "\\Qlogback-test.xml\\E"
+      },
+      {
+        "pattern": "\\Qlogback.groovy\\E"
+      },
+      {
+        "pattern": "\\Qlogback.scmo\\E"
+      },
+      {
+        "pattern": "\\Qlogback.xml\\E"
       },
       {
         "pattern": "\\Qorg/apache/catalina/core/RestrictedFilters.properties\\E"
@@ -35,10 +149,31 @@
         "pattern": "\\Qorg/apache/catalina/util/ServerInfo.properties\\E"
       },
       {
+        "pattern": "\\Qorg/postgresql/driverconfig.properties\\E"
+      },
+      {
         "pattern": "\\Qorg/springframework/boot/autoconfigure/transaction/TransactionAutoConfiguration$EnableTransactionManagementConfiguration$CglibAutoProxyConfiguration.class\\E"
       },
       {
-        "pattern": "java.base:\\Qjdk/internal/icu/impl/data/icudt67b/nfkc.nrm\\E"
+        "pattern": "\\Qpublic/index.html\\E"
+      },
+      {
+        "pattern": "\\Qresources/index.html\\E"
+      },
+      {
+        "pattern": "\\Qschema-all.sql\\E"
+      },
+      {
+        "pattern": "\\Qschema.sql\\E"
+      },
+      {
+        "pattern": "\\Qspring.properties\\E"
+      },
+      {
+        "pattern": "\\Qsql-error-codes.xml\\E"
+      },
+      {
+        "pattern": "\\Qstatic/index.html\\E"
       }
     ]
   },
@@ -224,12 +359,6 @@
       ]
     },
     {
-      "name": "org.apache.tomcat.util.threads.LocalStrings",
-      "locales": [
-        ""
-      ]
-    },
-    {
       "name": "org.apache.tomcat.websocket.LocalStrings",
       "locales": [
         ""
@@ -239,6 +368,12 @@
       "name": "org.apache.tomcat.websocket.server.LocalStrings",
       "locales": [
         ""
+      ]
+    },
+    {
+      "name": "org.postgresql.translation.messages",
+      "classNames": [
+        "org.postgresql.translation.messages_pt_BR"
       ]
     }
   ]

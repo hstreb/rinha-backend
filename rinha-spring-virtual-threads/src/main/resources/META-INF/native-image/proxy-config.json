@@ -27,7 +27,7 @@
   },
   {
     "interfaces": [
-      "org.example.PessoaRepository",
+      "org.exemplo.rinha.PessoaRepository",
       "org.springframework.data.repository.Repository",
       "org.springframework.transaction.interceptor.TransactionalProxy",
       "org.springframework.aop.framework.Advised",
