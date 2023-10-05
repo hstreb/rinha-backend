@@ -7,7 +7,7 @@
 # iniciar o docker compose
 # rodar script de teste e coletar as métricas
 
-WORKSPACE=$HOME/dev/rinha-backend/stress-test
+WORKSPACE=$(pwd)/stress-test
 
 projeto=${1}
 [[ -z "$1" ]] && { echo "Parametro 1 (projeto) é obrigatório!" ; exit 1; }
@@ -40,8 +40,6 @@ end=`date +%s.%N`
 
 runtime=$( echo "$end - $start" | bc -l )
 echo "[${projeto}]: aceitando requisições após: ${runtime} segundos"  >> $log 2>&1
-
-sleep 3
 
 qtde_inicial=$(curl -s "http://localhost:9999/contagem-pessoas")
 

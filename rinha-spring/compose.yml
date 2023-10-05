@@ -13,10 +13,20 @@ services:
         limits:
           cpus: '0.3'
           memory: '0.75GB'
+    healthcheck:
+      test: curl -f localhost:8080/contagem-pessoas
+      interval: 2s
+      timeout: 1s
+      retries: 30
   api2:
     <<: *api
     environment:
       - SERVER_PORT=8081
+    healthcheck:
+      test: curl -f localhost:8081/contagem-pessoas
+      interval: 2s
+      timeout: 1s
+      retries: 30
 
   api-native1: &api-native
     image: hstreb/rinha-spring:0.0.1-native
@@ -41,8 +51,10 @@ services:
       - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     profiles: ["jvm"]
     depends_on:
-      - api1
-      - api2
+      api1:
+        condition: service_healthy
+      api2:
+        condition: service_healthy
     network_mode: "host"
     deploy:
       resources:

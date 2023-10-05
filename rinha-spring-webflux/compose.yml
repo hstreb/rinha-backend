@@ -13,27 +13,21 @@ services:
         limits:
           cpus: '0.3'
           memory: '0.75GB'
+    healthcheck:
+      test: curl -f localhost:8080/contagem-pessoas
+      interval: 2s
+      timeout: 1s
+      retries: 30
+
   api2:
     <<: *api
     environment:
       - SERVER_PORT=8081
-
-  api-native1: &api-native
-    image: hstreb/rinha-spring-webflux:0.0.1-native
-    profiles: ["native"]
-    depends_on:
-      db:
-        condition: service_healthy
-    network_mode: "host"
-    deploy:
-      resources:
-        limits:
-          cpus: '0.3'
-          memory: '0.5GB'
-  api-native2:
-    <<: *api-native
-    environment:
-      - SERVER_PORT=8081
+    healthcheck:
+      test: curl -f localhost:8081/contagem-pessoas
+      interval: 2s
+      timeout: 1s
+      retries: 30
 
   nginx:
     image: nginx:latest
@@ -41,8 +35,10 @@ services:
       - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     profiles: ["jvm"]
     depends_on:
-      - api1
-      - api2
+      api1:
+        condition: service_healthy
+      api2:
+        condition: service_healthy
     network_mode: "host"
     deploy:
       resources:
@@ -50,20 +46,6 @@ services:
           cpus: '0.1'
           memory: '0.5GB'
 
-  nginx-native:
-    image: nginx:latest
-    volumes:
-      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-    profiles: ["native"]
-    depends_on:
-      - api-native1
-      - api-native2
-    network_mode: "host"
-    deploy:
-      resources:
-        limits:
-          cpus: '0.1'
-          memory: '0.5GB'
   db:
     image: postgres:15.4-alpine
     hostname: db
